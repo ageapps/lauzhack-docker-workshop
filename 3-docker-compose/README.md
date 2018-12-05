@@ -5,9 +5,9 @@ Suposing that `Docker` is installed, which comes with `docker-compose` natively.
 ## Initial requirements
 
 + [`Docker` and `docker-compose`](https://www.docker.com/products/docker-desktop)
-+ Clone [`docker-chat`](https://github.com/ageapps/docker-chat) repository
++ Clone [`docker-chat`](https://github.com/ageapps/docker-node-mongo) repository
     ```bash
-    git clone https://github.com/ageapps/docker-chat
+    git clonehttps://github.com/ageapps/docker-node-mongo
     ```
     
 ## Setup
@@ -18,29 +18,29 @@ Suposing that `Docker` is installed, which comes with `docker-compose` natively.
 ## Steps
 ### Deployment
 ```bash
-$ cd demo
+$ cd app
 $ docker-compose up -d
-Creating network "dockerchat_default" with the default driver
-Creating dockerchat_db_1 ...
-Creating dockerchat_db_1 ... done
-Creating dockerchat_app_1 ...
-Creating dockerchat_app_1 ... done
-# connect in your browser to <host IP>:8888
+Creating network "docker-node-mongo_default" with the default driver
+Creating docker-node-mongo_db_1 ...
+Creating docker-node-mongo_db_1 ... done
+Creating docker-node-mongo_server_1 ...
+Creating docker-node-mongo_server_1 ... done
+# connect in your browser to <host IP>:8080
 $ docker ps
-CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS                   PORTS                      NAMES
-24a4374824bb        ageapps/docker-chat:app     "nodemon ./bin/www"      2 minutes ago       Up 2 minutes             0.0.0.0:8888->3000/tcp     dockerchat_app_1
-932357d094d8        ageapps/docker-chat:mongo   "docker-entrypoint..."   2 minutes ago       Up 2 minutes (healthy)   0.0.0.0:27017->27017/tcp   dockerchat_db_1
+CONTAINER ID        IMAGE                      COMMAND                  CREATED             STATUS                   PORTS                 NAMES
+0759499a5d76        docker-node-mongo_server   "nodemon ./bin/www"      3 minutes ago       Up 3 minutes             0.0.0.0:8080->3000/tcp   docker-node-mongo_server_1
+1298b956bcad        mongo                      "docker-entrypoint.s…"   3 minutes ago       Up 3 minutes (healthy)   27017/tcp                docker-node-mongo_db_1
 
 ```
 ### Clean Enviroment
 ```
 # To stop the system
 $ docker-compose down -v
-Stopping dockerchat_app_1 ... done
-Stopping dockerchat_db_1  ... done
-Removing dockerchat_app_1 ... done
-Removing dockerchat_db_1  ... done
-Removing network dockerchat_default
+Stopping docker-node-mongo_server_1 ... done
+Stopping docker-node-mongo_db_1  ... done
+Removing docker-node-mongo_server_1 ... done
+Removing docker-node-mongo_db_1  ... done
+Removing network docker-node-mongo_default
 ```
 
 [NodeJS image]: https://hub.docker.com/_/node/
@@ -51,20 +51,3 @@ Removing network dockerchat_default
 [Docker]: https://docs.docker.com/
 [docker-compose]:https://docs.docker.com/compose/compose-file/
 [docker-build]:https://docs.docker.com/engine/reference/builder/
-[Kubernetes]:https://kubernetes.io/
-[WebSocket handshake]:https://tools.ietf.org/html/rfc6455
-[WebSocket]:https://en.wikipedia.org/wiki/WebSocket
-[MongoStore]:https://www.npmjs.com/package/connect-mongo
-[GlusterFS]:https://www.gluster.org/
-[traefik]:https://traefik.io/
-[NATS]:https://nats.io/
-[NATS Adapter]:https://www.npmjs.com/package/socket.io-nats
-[RabbitMQ]:https://www.rabbitmq.com/
-[Rabbit Adapter]:https://www.npmjs.com/package/socket.io-amqp
-[Redis]:https://redis.io/
-[Redis Adapter]:https://github.com/socketio/socket.io-redis
-[traefik image]:https://hub.docker.com/r/_/traefik/
-[SocketIO]:https://socket.io/
-[Express Session]:https://github.com/expressjs/session
-[NGINX Ingress Controller]: https://github.com/kubernetes/ingress-nginx
-[ingress documentation]: https://github.com/kubernetes/ingress-nginx/blob/master/docs/catalog.md
