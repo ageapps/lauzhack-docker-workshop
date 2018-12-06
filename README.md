@@ -2,6 +2,9 @@
 
 This repo corresponds to a workshop done in the EPFL during the [LauzHack 2018 Days](https://lauzhack.com/workshops).
 
+Slides can be found [HERE](https://speakerdeck.com/adrian_gespi/intro-to-docker-lauzhack-days)
+![slides](./art/slides.jpg)
+
 
 ## Initial steps
 
