@@ -7,7 +7,7 @@ Suposing that `Docker` is installed, which comes with `docker-compose` natively.
 + [`Docker` and `docker-compose`](https://www.docker.com/products/docker-desktop)
 + Clone [`docker-chat`](https://github.com/ageapps/docker-node-mongo) repository
     ```bash
-    git clonehttps://github.com/ageapps/docker-node-mongo
+    git clone https://github.com/ageapps/docker-node-mongo
     ```
     
 ## Setup
